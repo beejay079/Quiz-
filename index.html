@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  <style>
+      /* Styles for circle indicators at the bottom */
+      .question-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12px;
+}
+
+.question-indicator.correct {
+  background-color: #28a745; /* Green for correct answers */
+}
+
+.question-indicator.incorrect {
+  background-color: #dc3545; /* Red for incorrect answers */
+}
+    </style>
+  </head>
+  <body class="bg-light d-flex flex-column align-items-center justify-content-center min-vh-100">
+    <!-- Main container for the quiz app -->
+    <div class="container bg-white p-4 rounded shadow-lg" style="max-width: 600px">
+      <h1 class="text-center mb-2">JavaScript Quiz</h1>
+      <p class="text-center mb-4">10 Questions</p>
+      <!-- Start screen, shown first with Start Quiz button -->
+      <div id="start-screen" class="text-center">
+        <p class="mb-4">Test your skills with this JavaScript quiz. 10 questions, 10 minutes.</p>
+        <button id="start-btn" class="btn btn-primary">Start Quiz</button>
+      </div>
+      <!-- Quiz screen, hidden initially, shows questions and options -->
+      <div id="quiz-screen" class="d-none">
+        <div class="d-flex justify-content-between mb-3">
+          <div>Question <span id="question-number">1</span> of 10</div>
+          <div id="timer" class="text-center text-lg font-semibold mb-4">Time: <span id="time-left">5</span>s</div>
+        </div>
+        <!-- Progress bar to show quiz progress -->
+        <div class="progress mb-3" style="height: 10px">
+          <div id="progress" class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div id="question-text" class="mb-3 fs-5"></div>
+        <div id="options" class="d-grid gap-2"></div>
+        <!-- Circle indicators for navigating questions -->
+        <div id="question-indicators" class="text-center mt-4 d-flex justify-content-center"></div>
+      </div>
+      <!-- Result screen, hidden initially, shows score and solutions -->
+      <div id="result-screen" class="d-none">
+        <h2 class="text-center mb-4">Quiz Results</h2>
+        <p class="text-center mb-4">Your Score: <span id="score"></span></p>
+        <p id="feedback" class="text-center mb-4"></p>
+        <h3 class="mb-3">Solutions</h3>
+        <div id="solutions" class="mb-4"></div>
+        <div class="text-center">
+          <button id="restart-btn" class="btn btn-primary">Restart Quiz</button>
+        </div>
+      </div>
+    </div>
+    <script src="./javaScript/index.js"></script>
+  </body>
+</html>
